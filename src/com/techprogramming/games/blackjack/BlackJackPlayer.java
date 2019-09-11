@@ -54,28 +54,27 @@ public class BlackJackPlayer extends Player{
 	public int getTotal() {
 		
 		List<Card> hand =  this.getHand();
-		int total = 0;
+		int total = 0, totalAces = 0;
 		Card card;
 		for (int i = 0; i < hand.size(); i++) {
 			card = hand.get(i);
 			int value = card.getValue();
-			if(value > 10) {
+			if (value == 1) {
+				totalAces ++;
+				value = 11;
+			}
+			else if(value > 10) {
 				value = 10;
 			}
 			total += value;
-			
-			if(value == 1) {
-				if((total + 10) <= 21) {
-					total += 10;
-				}else {
-					if(this.aces > 0) {
-						total -=10;
-						this.aces --;
-					}
-				}
-				this.aces += 1;
-			}
 		}
+			
+		while (totalAces > 0 && total > 21)
+		{
+			total -= 10;
+			totalAces --;
+		}
+			
 		return total;
 	}
 }
