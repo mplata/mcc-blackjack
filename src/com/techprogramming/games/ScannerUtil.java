@@ -19,6 +19,21 @@ public class ScannerUtil {
 		return instance;
 	}
 	
+	
+	public String getString(String errMessage) {
+		String input = "";
+		while(input.equals("")) {
+			try {
+				input = this.scanner.nextLine();
+			} catch (Exception e) {
+				System.out.println("Error: "+errMessage);
+				this.scanner.next();
+				input = "";
+			}
+		}
+		return input;
+	}
+	
 	public int getInt(String errMessage){
 		
 		int input = -1;

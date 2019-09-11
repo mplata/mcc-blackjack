@@ -3,6 +3,8 @@ package com.techprogramming.games.blackjack;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.techprogramming.games.ScannerUtil;
+
 public class PlayerBuilder {
 
 	private static PlayerBuilder builder = null;
@@ -20,11 +22,21 @@ public class PlayerBuilder {
 		
 		List<BlackJackPlayer> players = new ArrayList<BlackJackPlayer>();
 		
-		BlackJackPlayer p1 = new BlackJackPlayer("Daniel", 100);
-		BlackJackPlayer p2 = new BlackJackPlayer("Marcos",200);
+		ScannerUtil scn = ScannerUtil.getInstance();
 		
-		players.add(p1);
-		players.add(p2);
+		String name = "";
+		int money = 0;
+		BlackJackPlayer player;
+		
+		for(int i=0; i<totalPlayers; i++) {
+			System.out.println("Ingrese nombre para jugador: "+(i+1));
+			name = scn.getString("Ingrese un nombre valido");
+			System.out.println("Ingrese monto para jugador: "+(i+1));
+			money = scn.getInt("Ingrese un monto valido");
+			player = new BlackJackPlayer(name,money);
+			players.add(player);
+		}
+		
 		return players;
 	}
 }

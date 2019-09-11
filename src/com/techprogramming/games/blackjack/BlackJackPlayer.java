@@ -34,6 +34,10 @@ public class BlackJackPlayer extends Player{
 		this.status = status;
 	}
 	
+	public void reset() {
+		this.setHand(new ArrayList<Card>());
+	}
+	
 	public int choiceOption() {
 		
 		this.printHand();
@@ -61,7 +65,6 @@ public class BlackJackPlayer extends Player{
 			total += value;
 			
 			if(value == 1) {
-				System.out.println("ES ASS "+total);
 				if((total + 10) <= 21) {
 					total += 10;
 				}else {
@@ -70,7 +73,6 @@ public class BlackJackPlayer extends Player{
 						this.aces --;
 					}
 				}
-				System.out.println("ES AS "+total);
 				this.aces += 1;
 			}
 		}

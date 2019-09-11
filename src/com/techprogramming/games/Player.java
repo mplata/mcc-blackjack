@@ -5,9 +5,9 @@ import java.util.List;
 
 public class Player {
 	
-	private final String SPACE = "       *\t";
-	private final String SPACE_PLUS = "      *\t";
-	private final String ROW = "*        *\t";
+	protected final String SPACE = "       *\t";
+	protected final String SPACE_PLUS = "      *\t";
+	protected final String ROW = "*        *\t";
 	
 	public final String ANSI_RESET = "\u001B[0m";
 	
@@ -49,8 +49,12 @@ public class Player {
 	public List<Card> getHand(){
 		return this.hand;
 	}
+	
+	public void setHand(List<Card> hand) {
+		this.hand = hand;
+	}
 
-	public double getMoney() {
+	public int getMoney() {
 		return money;
 	}
 

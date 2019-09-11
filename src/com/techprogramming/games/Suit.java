@@ -1,6 +1,6 @@
 package com.techprogramming.games;
 
-enum Suit {
+public enum Suit {
 	DIAMOND("\u2666"),
 	HEART("\u2665"),
 	CLUB("\u2663"),
